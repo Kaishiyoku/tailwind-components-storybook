@@ -5,9 +5,9 @@
     "@storybook/addon-essentials": "^6.1.17",
     "@storybook/addon-links": "^6.1.17",
     "@storybook/html": "^6.1.17",
+    "@whitespace/storybook-addon-html": "^4.2.0",
     "babel-loader": "^8.2.2"
   },
-  "dependencies": {},
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
