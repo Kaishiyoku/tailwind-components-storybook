@@ -1,23 +1,16 @@
-import { createButton } from './Button';
+import React from 'react';
+
+import { Button } from './Button';
 
 export default {
   title: 'Example/Button',
+  component: Button,
   argTypes: {
-    label: { control: 'text' },
-    primary: { control: 'boolean' },
     backgroundColor: { control: 'color' },
-    size: {
-      control: { type: 'select', options: ['small', 'medium', 'large'] },
-    },
-    onClick: { action: 'onClick' },
   },
 };
 
-const Template = ({ label, ...args }) => {
-  // You can either use a function to create DOM elements or use a plain html string!
-  // return `<div>${label}</div>`;
-  return createButton({ label, ...args });
-};
+const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
