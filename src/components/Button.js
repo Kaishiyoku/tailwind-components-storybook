@@ -12,4 +12,4 @@ class Button extends React.PureComponent {
     }
 }
 
-export default Button
+export default Button;
