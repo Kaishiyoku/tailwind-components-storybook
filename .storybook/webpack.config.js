@@ -1,6 +1,6 @@
 const path = require("path");
 
-module.exports = async ({ config, mode }) => {
+module.exports = async ({config, mode}) => {
     config.module.rules.push({
         test: /\.css$/,
         use: [
@@ -18,5 +18,6 @@ module.exports = async ({ config, mode }) => {
         ],
         include: path.resolve(__dirname, "../")
     });
+
     return config;
 };
