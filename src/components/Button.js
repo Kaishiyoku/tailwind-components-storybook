@@ -1,67 +1,64 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import SvgIcon from './SvgIcon';
 
 class Button extends React.PureComponent {
     static propTypes = {
-        showIconOnly: PropTypes.bool,
-        showSampleIcon: PropTypes.bool,
-        size: PropTypes.oneOf(['normal', 'small', 'large']),
+        icon: PropTypes.element,
+        label: PropTypes.string,
+        size: PropTypes.oneOf(['base', 'sm', 'lg']),
     };
 
     static defaultProps = {
-        showIconOnly: false,
-        showSampleIcon: false,
-        size: 'normal',
+        icon: null,
+        label: null,
+        size: 'base',
     };
 
-    renderChildren() {
-        const {children, size, showIconOnly, showSampleIcon} = this.props;
-
-        const sampleIcon = showSampleIcon ? <svg className={clsx({'w-4 h-4': size === 'small', 'w-6 h-6': size !== 'small'})} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> : null;
-        const label = !showIconOnly ? <span className={clsx({'pl-1': sampleIcon})}>{children}</span> : null;
-
-        return (
-            <>
-                {sampleIcon}
-                {label}
-            </>
-        );
-    }
+    static baseButtonClasses = [
+        'text-left',
+        'text-blue-600',
+        'shadow-md',
+        'border',
+        'border-blue-300',
+        'bg-white',
+        'rounded-full',
+        'transition-all',
+        'duration-200',
+        'focus:ring-4',
+        'focus:ring-blue-200',
+        'hover:bg-blue-500',
+        'hover:text-white',
+        'focus:outline-none',
+    ];
 
     render() {
-        const {size, showIconOnly, showSampleIcon} = this.props;
+        const {icon, label, size} = this.props;
 
-        const baseButtonClasses = [
-            'text-left',
-            'text-blue-600',
-            'shadow-md',
-            'border',
-            'border-blue-300',
-            'bg-white',
-            'rounded-full',
-            'transition-all',
-            'duration-200',
-            'focus:ring-4',
-            'focus:ring-blue-200',
-            'hover:bg-blue-500',
-            'hover:text-white',
-            'focus:outline-none',
-        ];
+        const iconButtonClasses = clsx({
+            'flex gap-1 items-center': icon,
+        });
 
-        const buttonClasses = clsx(baseButtonClasses, {
-            'flex items-center': !showIconOnly,
-            'px-1': showIconOnly && showSampleIcon && size === 'small',
-            'px-2': showSampleIcon && (size !== 'small' || !showIconOnly),
-            'px-4': !showSampleIcon,
-            'py-1 text-sm': size === 'small',
-            'py-2': size === 'normal',
-            'py-2 text-lg': size === 'large',
+        const iconClasses = clsx({
+            'w-4 h-4': size === 'sm',
+            'w-6 h-6': size === 'base',
+            'w-7 h-7': size === 'lg',
+        });
+
+        const buttonClasses = clsx(Button.baseButtonClasses, iconButtonClasses, {
+            'px-1': !label && size === 'sm',
+            'px-2': (label && size === 'sm') || (!label && ['base', 'lg'].includes(size)),
+            'px-4': label && ['base', 'lg'].includes(size),
+            'py-1 text-sm': size === 'sm',
+            'py-2': size === 'base',
+            'py-2 text-lg': size === 'lg',
         });
 
         return (
             <button className={buttonClasses}>
-                {this.renderChildren()}
+                <SvgIcon className={iconClasses} element={icon}/>
+                {label}
             </button>
         );
     }

@@ -1,15 +1,13 @@
 import React from 'react';
 import Button from '../components/Button';
+import {ReactComponent as SparkleSvg} from './assets/sparkles.svg';
 
 export default {
     argTypes: {
-        children: {control: 'text'},
-        size: {
-            control: {options: ['normal', 'small', 'large'], type: 'select'},
-        },
+        icon: {control: {disable: true}},
     },
     args: {
-        children: 'Button',
+        label: 'Button',
     },
     component: Button,
     title: 'Button',
@@ -26,12 +24,12 @@ Normal.args = {
 export const IconWithLabel = Template.bind({});
 // eslint-disable-next-line fp/no-mutation
 IconWithLabel.args = {
-    showSampleIcon: true,
+    icon: SparkleSvg,
 };
 
 export const IconOnly = Template.bind({});
 // eslint-disable-next-line fp/no-mutation
 IconOnly.args = {
-    showIconOnly: true,
-    showSampleIcon: true,
+    icon: SparkleSvg,
+    label: null,
 };
