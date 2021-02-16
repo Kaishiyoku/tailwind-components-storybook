@@ -1896,7 +1896,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-controls@6.1.17":
+"@storybook/addon-controls@6.1.17", "@storybook/addon-controls@^6.1.17":
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.1.17.tgz#b9ed334db427c1675b9ac2512fce4679089b0def"
   integrity sha512-Dhh75fmPsR1MGUSDHC8ScOQ6jMh/pTCt3uFryy+q6XX8Jp3pC9qOcid9frbIyLAH4fvPX0FBDxXv8go/n0MzLw==
@@ -4820,6 +4820,11 @@ cliui@^6.0.0:
     string-width "^4.2.0"
     strip-ansi "^6.0.0"
     wrap-ansi "^6.2.0"
+
+clsx@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
 
 co@^4.6.0:
   version "4.6.0"
