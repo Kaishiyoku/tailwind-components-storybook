@@ -6,8 +6,8 @@ module.exports = {
     addons: [
         '@whitespace/storybook-addon-html',
         '@storybook/addon-backgrounds',
-        '@storybook/addon-controls',
         '@storybook/addon-docs',
+        '@storybook/addon-controls',
         '@storybook/addon-viewport',
         '@storybook/addon-toolbars',
         '@storybook/preset-create-react-app',

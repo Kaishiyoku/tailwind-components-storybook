@@ -23,14 +23,15 @@ Normal.args = {
     //
 };
 
-export const Large = Template.bind({});
+export const IconWithLabel = Template.bind({});
 // eslint-disable-next-line fp/no-mutation
-Large.args = {
-    size: 'large',
+IconWithLabel.args = {
+    showSampleIcon: true,
 };
 
-export const Small = Template.bind({});
+export const IconOnly = Template.bind({});
 // eslint-disable-next-line fp/no-mutation
-Small.args = {
-    size: 'small',
+IconOnly.args = {
+    showIconOnly: true,
+    showSampleIcon: true,
 };
