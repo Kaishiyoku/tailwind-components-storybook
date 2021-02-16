@@ -12,7 +12,7 @@ export default {
         children: 'Button',
     },
     component: Button,
-    title: 'Example/Button',
+    title: 'Button',
 };
 
 const Template = (args) => <Button {...args} />;

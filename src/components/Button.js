@@ -33,7 +33,6 @@ class Button extends React.PureComponent {
         const {size, showIconOnly, showSampleIcon} = this.props;
 
         const baseButtonClasses = [
-            'mb-4',
             'text-left',
             'text-blue-600',
             'shadow-md',
