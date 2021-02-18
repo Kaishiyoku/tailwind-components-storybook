@@ -69,8 +69,8 @@ class Card extends React.PureComponent {
 
         const footerContent = showFooterActionButtons ? (
             <div className="flex gap-x-2">
-                <Button>Details</Button>
-                <Button>Edit</Button>
+                <Button label="Details"/>
+                <Button label="Edit"/>
             </div>
         ) : 'Card footer';
 
