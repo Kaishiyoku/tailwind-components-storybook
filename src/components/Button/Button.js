@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import SvgIcon from './SvgIcon';
+import SvgIcon from '../SvgIcon';
 
 class Button extends React.PureComponent {
     static propTypes = {
@@ -33,20 +33,10 @@ class Button extends React.PureComponent {
         'focus:outline-none',
     ];
 
-    render() {
+    getButtonClasses() {
         const {icon, label, size} = this.props;
 
-        const iconButtonClasses = clsx({
-            'flex gap-1 items-center': icon,
-        });
-
-        const iconClasses = clsx({
-            'w-4 h-4': size === 'sm',
-            'w-6 h-6': size === 'base',
-            'w-7 h-7': size === 'lg',
-        });
-
-        const buttonClasses = clsx(Button.baseButtonClasses, iconButtonClasses, {
+        return clsx(Button.baseButtonClasses, {'flex gap-1 items-center': this.props.icon}, {
             'px-1': !label && size === 'sm',
             'px-2': (label && size === 'sm') || (!label && ['base', 'lg'].includes(size)),
             'px-4': label && ['base', 'lg'].includes(size),
@@ -54,10 +44,24 @@ class Button extends React.PureComponent {
             'py-2': size === 'base',
             'py-2 text-lg': size === 'lg',
         });
+    }
+
+    getIconClasses() {
+        const {size} = this.props;
+
+        return clsx({
+            'w-4 h-4': size === 'sm',
+            'w-6 h-6': size === 'base',
+            'w-7 h-7': size === 'lg',
+        });
+    }
+
+    render() {
+        const {icon, label} = this.props;
 
         return (
-            <button className={buttonClasses}>
-                <SvgIcon className={iconClasses} element={icon}/>
+            <button className={this.getButtonClasses()}>
+                <SvgIcon className={this.getIconClasses()} element={icon}/>
                 {label}
             </button>
         );

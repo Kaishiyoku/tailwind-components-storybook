@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Button from './Button';
+import Button from './Button/Button';
 
 class Card extends React.PureComponent {
     static propTypes = {

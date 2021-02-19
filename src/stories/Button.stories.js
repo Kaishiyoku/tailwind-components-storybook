@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/Button';
+import Button from '../components/Button/Button';
 import {ReactComponent as SparkleSvg} from './assets/sparkles.svg';
 
 export default {
