@@ -6,14 +6,46 @@ class Table extends React.PureComponent {
     static propTypes = {
         bordered: PropTypes.bool,
         hovered: PropTypes.bool,
+        showFooter: PropTypes.bool,
         size: PropTypes.oneOf(['base', 'sm']),
     };
 
     static defaultProps = {
         bordered: false,
         hovered: false,
+        showFooter: false,
         size: 'base',
     };
+
+    renderTableFooter() {
+        const {showFooter, size} = this.props;
+
+        if (!showFooter) {
+            return null;
+        }
+
+        const footerColumnClasses = clsx([
+            'bg-gray-50',
+            'font-bold',
+            'text-gray-500',
+            'border-t-2',
+            'border-gray-100',
+            'tracking-wide',
+            'align-middle',
+        ], {
+            'p-3': size === 'base',
+            'py-2 px-3': size === 'sm',
+        });
+
+        return (
+            <tfoot>
+                <tr>
+                    <td className={footerColumnClasses}>Test</td>
+                    <td className={footerColumnClasses}>Test</td>
+                </tr>
+            </tfoot>
+        );
+    }
 
     render() {
         const {bordered, hovered, size} = this.props;
@@ -73,6 +105,7 @@ class Table extends React.PureComponent {
                         <td className={bodyColumnClasses}>21</td>
                     </tr>
                 </tbody>
+                {this.renderTableFooter()}
             </table>
         );
     }

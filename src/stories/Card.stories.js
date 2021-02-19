@@ -61,6 +61,5 @@ export const WithTable = Template.bind({});
 WithTable.args = {
     children: <Table/>,
     hasPadding: false,
-    showFooter: true,
-    showHeading: true,
+    showHeading: false,
 };

@@ -56,7 +56,7 @@ class Card extends React.PureComponent {
         }
 
         return (
-            <div className="font-bold text-xl px-6 pt-4 pb-2">
+            <div className="font-bold text-xl px-6 py-4">
                 {heading}
             </div>
         );
@@ -90,7 +90,7 @@ class Card extends React.PureComponent {
             <div className="rounded-lg overflow-hidden shadow-lg border border-gray-100 bg-white">
                 {this.renderHeading()}
 
-                <div className={clsx({'pt-4': !showHeading, 'px-6 pb-4': showActionButton || hasPadding})}>
+                <div className={clsx({'pt-4': !showHeading && hasPadding, 'px-6 pb-4': showActionButton || hasPadding})}>
                     {children}
                 </div>
 
