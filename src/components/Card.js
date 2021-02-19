@@ -5,6 +5,7 @@ import Button from './Button';
 
 class Card extends React.PureComponent {
     static propTypes = {
+        hasPadding: PropTypes.bool,
         heading: PropTypes.string,
         showActionButton: PropTypes.bool,
         showFooter: PropTypes.bool,
@@ -13,6 +14,7 @@ class Card extends React.PureComponent {
     };
 
     static defaultProps = {
+        hasPadding: true,
         heading: null,
         showActionButton: false,
         showFooter: false,
@@ -28,7 +30,7 @@ class Card extends React.PureComponent {
         }
 
         return (
-            <button className="p-2 text-xl rounded-full mt-1 mr-1 text-gray-500 hover:bg-gray-100 focus:text-gray-700 focus:bg-gray-200 focus:outline-none">
+            <button className="p-2 text-xl rounded-full mt-1 mr-1 text-gray-500 transition-all duration-200 hover:bg-gray-100 focus:text-gray-700 focus:bg-gray-200 focus:outline-none">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         );
@@ -44,7 +46,7 @@ class Card extends React.PureComponent {
         if (showActionButton) {
             return (
                 <div className="flex justify-between items-start">
-                    <div className="px-6 pt-4 font-bold text-xl mb-2">
+                    <div className="px-6 pt-4 font-bold text-xl pb-2">
                         {heading}
                     </div>
 
@@ -54,7 +56,7 @@ class Card extends React.PureComponent {
         }
 
         return (
-            <div className="font-bold text-xl mb-2">
+            <div className="font-bold text-xl px-6 pt-4 pb-2">
                 {heading}
             </div>
         );
@@ -82,20 +84,14 @@ class Card extends React.PureComponent {
     }
 
     render() {
+        const {children, hasPadding, showActionButton, showHeading} = this.props;
+
         return (
             <div className="rounded-lg overflow-hidden shadow-lg border border-gray-100 bg-white">
-                <div className={clsx({'px-6 py-4': !this.props.showActionButton})}>
-                    {this.renderHeading()}
+                {this.renderHeading()}
 
-                    <div className={clsx({'px-6 pb-4': this.props.showActionButton})}>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-                        sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                        ipsum dolor sit amet.
-                    </div>
+                <div className={clsx({'pt-4': !showHeading, 'px-6 pb-4': showActionButton || hasPadding})}>
+                    {children}
                 </div>
 
                 {this.renderFooter()}

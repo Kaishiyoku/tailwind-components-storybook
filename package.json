@@ -63,6 +63,7 @@
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-no-switch-statements": "^1.0.0",
     "eslint-plugin-no-unsafe-chars": "^1.0.2",
+    "loremize": "^3.0.1",
     "postcss": "^7",
     "postcss-import": "^12.0.0",
     "prop-types": "^15.7.2",

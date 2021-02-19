@@ -9452,6 +9452,11 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+loremize@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/loremize/-/loremize-3.0.1.tgz#31b6ca64a0411d06dcaf92425f4dfd16644f5ab7"
+  integrity sha512-JF8gYhG+BrKE72qzsq2d4JlFqyv3gwLb5/Fyy2Br5NLnulbZyDFLptnZ9FW+Zj7d3BJGH30bPgSUz8NtcvQPZQ==
+
 lower-case@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-2.0.2.tgz#6fa237c63dbdc4a82ca0fd882e4722dc5e634e28"
